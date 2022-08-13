@@ -7,4 +7,7 @@ class AcGame {
 
         this.start();
     }
+
+    start() {
+    }
 }

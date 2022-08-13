@@ -1,18 +1,18 @@
-class AcGameMenu{
+class AcGameMenu {
     constructor(root){
         this.root = root;
         this.$menu = $(`
 <div class="ac-game-menu">
-    <div class="ac-game-field">
-        <div class="ac-game-menu-field-item ac-game-menu-field-item-single" >
+    <div class="ac-game-menu-field">
+        <div class="ac-game-menu-field-item ac-game-menu-field-item-single-mode" >
             单人模式
         </div>
         <br>
-        <div class="ac-game-menu-field-item ac-game-menu-field-item-multi">
+        <div class="ac-game-menu-field-item ac-game-menu-field-item-multi-mode">
             多人模式
         </div>
-        </br>
-        <div class="ac-game-menu-field-tem ac-game-menu-field-item-settings">
+        <br>
+        <div class="ac-game-menu-field-item ac-game-menu-field-item-settings">
             设置
         </div>
     </div>
@@ -21,24 +21,25 @@ class AcGameMenu{
         this.root.$ac_game.append(this.$menu);
         this.$single_mode = this.$menu.find('.ac-game-menu-field-item-single-mode');
         this.$multi_mode = this.$menu.find('.ac-game-menu-field-item-multi-mode');
-        this.$settings_mode = this.$menu.find('.ac-game-menu-field-item-settings-mode');
+        this.$settings = this.$menu.find('.ac-game-menu-field-item-settings');
 
         this.start();
     }
-    start(){
+    start() {
         this.add_listening_events();
     }
 
-    add_listening_events(){
+    add_listening_events() {
         let outer = this;
-         this.$single.click(function(){
-             console.log("click single one");
+         this.$single_mode.click(function(){
+             outer.hide();
+             outer.root.playground.show();
          });
-        this.$multi_mode.click(funtion(){
-            console.log("2")
+        this.$multi_mode.click(function(){
+            console.log("2");
         });
-        this.$settings.click(funtion(){
-        console.log("settings");
+        this.$settings.click(function(){
+            console.log("settings");
         });
     }
 
@@ -50,8 +51,8 @@ class AcGameMenu{
     }
 }
 
-class AcGamePlayground{
-    constructor(root){
+class AcGamePlayground {
+    constructor(root) {
         this.root = root;
         this.$playground = $(`<div>游戏界面</div>`);
         this.hide();
@@ -60,15 +61,15 @@ class AcGamePlayground{
         this.start();
     }
 
-    start(){
+    start() {
     }
 
 
-    show(){
+    show() {
          this.$playground.show();
     }
 
-    hide(){
+    hide() {
         this.$playground.hide();
     }
 }
@@ -80,5 +81,8 @@ class AcGame {
         this.playground = new AcGamePlayground(this);
 
         this.start();
+    }
+
+    start() {
     }
 }

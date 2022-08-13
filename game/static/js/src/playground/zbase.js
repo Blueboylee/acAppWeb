@@ -1,5 +1,5 @@
-class AcGamePlayground{
-    constructor(root){
+class AcGamePlayground {
+    constructor(root) {
         this.root = root;
         this.$playground = $(`<div>游戏界面</div>`);
         this.hide();
@@ -8,15 +8,15 @@ class AcGamePlayground{
         this.start();
     }
 
-    start(){
+    start() {
     }
 
 
-    show(){
+    show() {
          this.$playground.show();
     }
 
-    hide(){
+    hide() {
         this.$playground.hide();
     }
 }
